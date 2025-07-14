@@ -15,8 +15,8 @@ mkdir vial-qmk/keyboards/scnplt
 cp -r lily58 vial-qmk/keyboards/scnplt
 
 # For left side
-qmk flash -kb scnplt/lily58 -km vial -e CONVERT_TO=promicro_rp2040 -bl uf2-split-left
+qmk flash -kb scnplt/lily58 -km vial -bl uf2-split-left
 
 # For right side
-qmk flash -kb scnplt/lily58 -km vial -e CONVERT_TO=promicro_rp2040 -bl uf2-split-right
+qmk flash -kb scnplt/lily58 -km vial -bl uf2-split-right
 ```
