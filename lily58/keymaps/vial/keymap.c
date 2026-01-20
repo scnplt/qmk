@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "quantum/wpm.h"
 
 enum {
     _WIN = 0,
@@ -169,7 +170,10 @@ static void render_status(void) {
   oled_write_P(PSTR("\nCaps\n\n"), false);
 
   led_t led_state = host_keyboard_led_state();
-  oled_write_P(led_state.caps_lock ? PSTR("> ON ") : PSTR("> OFF"), false);
+  oled_write_P(led_state.caps_lock ? PSTR("> ON \n") : PSTR("> OFF\n"), false);
+
+  oled_write_P(PSTR("\nWPM\n\n> "), false);
+  oled_write(get_u8_str(get_current_wpm(), '0'), false);
 }
 
 bool oled_task_user(void) {
